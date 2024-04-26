@@ -17,11 +17,11 @@ const URL = process.env.MONGODB_URL;
 
 //make connection with db
 mongoose.connect(URL,{
-    useCreateIndex: true,
+   
     useNewUrlParser: true,
-    useUnfiedTopology: true,
-    useFindTopology: false
-});
+    useUnifiedTopology: true,
+    
+})
 
 //open the connection
 const connection = mongoose.connection;
@@ -31,6 +31,6 @@ connection.once("open", () => {
 
 //listen to the PORT
 app.listen(PORT, () => {
-    console.log("Server is up and running on port number: ${PORT}")
+    console.log(`Server is up and running on port number: ${PORT}`)
 })
 
