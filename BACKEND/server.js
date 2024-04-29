@@ -31,6 +31,8 @@ connection.once("open", () => {
 
 //create backend routes
 const studentRouter = require("./routes/students.js");
+
+http://localhost:8075/students
 app.use("/students",studentRouter);
 
 //listen to the PORT
