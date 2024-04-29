@@ -7,7 +7,7 @@ const dotenv = require("dotenv");
 const app = express();
 require("dotenv").config();
 
-const PORT = process.env.PORT || 8070;//assigning available port address
+const PORT = process.env.PORT || 8075;//assigning available port address
 
 //use dependencies
 app.use(cors());
