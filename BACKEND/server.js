@@ -29,6 +29,10 @@ connection.once("open", () => {
     console.log("Mongodb Connection success!");
 })
 
+//create backend routes
+const studentRouter = require("./routes/students.js");
+app.use("/students",studentRouter);
+
 //listen to the PORT
 app.listen(PORT, () => {
     console.log(`Server is up and running on port number: ${PORT}`)
