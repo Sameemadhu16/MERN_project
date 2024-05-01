@@ -1,0 +1,6 @@
+MERN
+
+M -> Mongo DB-document database
+E -> Exepress(js)-Node-js frame work
+R -> React(js)- a client side jave script frame work
+N -> Node(js)-the premier java scipt web server
