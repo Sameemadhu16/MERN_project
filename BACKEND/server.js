@@ -7,7 +7,7 @@ const dotenv = require("dotenv");
 const app = express();
 require("dotenv").config();
 
-const PORT = process.env.PORT || 8075;//assigning available port address
+const PORT = process.env.PORT || 8070;//assigning available port address
 
 //use dependencies
 app.use(cors());
@@ -17,11 +17,9 @@ const URL = process.env.MONGODB_URL;
 
 //make connection with db
 mongoose.connect(URL,{
-   
     useNewUrlParser: true,
-    useUnifiedTopology: true,
-    
-})
+    useUnifiedTopology: true   
+});
 
 //open the connection
 const connection = mongoose.connection;
@@ -32,11 +30,10 @@ connection.once("open", () => {
 //create backend routes
 const studentRouter = require("./routes/students.js");
 
-http://localhost:8075/students
-app.use("/students",studentRouter);
+app.use("/student",studentRouter);
+
 
 //listen to the PORT
 app.listen(PORT, () => {
     console.log(`Server is up and running on port number: ${PORT}`)
-})
-
+});
