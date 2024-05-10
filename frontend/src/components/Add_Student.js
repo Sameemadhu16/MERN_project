@@ -1,20 +1,39 @@
 import React, {useState} from "react";
+import axios from "axios";
 
 export default function AddStudent(){
 
-  const [Name, setName] = useState("");
-  const [Age, setAge] = useState("");
-  const [Gender, setGender] = useState("");
+  const [name, setName] = useState("");
+  const [age, setAge] = useState("");
+  const [gender, setGender] = useState("");
+
+  function sendDate(e){
+    e.preventDefault();
+    
+    const newStudent ={
+      name,
+      age,
+      gender
+    }
+    
+    axios.post("http://localhost:8070/student/add",newStudent ).then(()=>{
+      alert("Student Added")
+      
+
+    }).catch((err)=>{
+      alert(err)
+    })
+  }
 
 
 
     return(
         <div className="container">
-            <form>
+            <form onSubmit={sendDate}>
             <div className="form-group">
 
-              <label for="Name">Student Name</label>
-              <input type="text" className="form-control" id="Name"  placeholder="Enter Student Name"
+              <label for="name">Student Name</label>
+              <input type="text" className="form-control" id="name"  placeholder="Enter Student Name"
               onChange = {(e)=>{
                 setName(e.target.value);
 
@@ -24,8 +43,8 @@ export default function AddStudent(){
 
             <div className="form-group">
 
-              <label for="Age">Student Age</label>
-              <input type="text" className="form-control" id="Age"  placeholder="Enter Student Age"
+              <label for="age">Student Age</label>
+              <input type="text" className="form-control" id="age"  placeholder="Enter Student Age"
               onChange = {(e)=>{
                 setAge(e.target.value);
 
@@ -35,8 +54,8 @@ export default function AddStudent(){
 
             <div className="form-group">
 
-              <label for="Gender">Student Gender</label>
-              <input type="text" className="form-control" id="Gender"  placeholder="Enter Student Gender"
+              <label for="gender">Student Gender</label>
+              <input type="text" className="form-control" id="gender"  placeholder="Enter Student Gender"
               onChange = {(e)=>{
                 setGender(e.target.value);
 
